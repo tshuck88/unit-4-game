@@ -16,24 +16,54 @@
             <h1>Star Wars RPG</h1>
         </header>
     </div>
-    <div id="your-character">
-        <img src="assets/images/obi-wan-kenobi.jpg" width="auto" height="150px" id="obi-wan-kenobi" class="character">
-        <img src="assets/images/luke-skywalker.jpg" width="auto" height="150px" id="luke-skywalker" class="character">
-        <img src="assets/images/darth-vader.jpg" width="auto" height="150px" id="darth-vader" class="character">
-        <img src="assets/images/darth-maul.jpg" width="auto" height="150px" id="darth-maul" class="character">
+    <div class="clearfix">
+        <div id="your-character">
+            <div id="character">
+                <p id="character-name"></p>
+                <img src="assets/images/obi-wan-kenobi.jpg" width="auto" height="150px" id="obi-wan-kenobi"
+                    class="character-img">
+            </div>
+            <p id="character-hp"></p>
+        </div>
+        <div id="your-character">
+            <div id="character">
+                <p id="character-name"></p>
+                <img src="assets/images/luke-skywalker.jpg" width="auto" height="150px" id="luke-skywalker"
+                    class="character-img">
+            </div>
+            <p id="character-hp"></p>
+        </div>
+        <div id="your-character">
+            <div id="character">
+                <p id="character-name"></p>
+                <img src="assets/images/darth-vader.jpg" width="auto" height="150px" id="darth-vader"
+                    class="character-img">
+            </div>
+            <p id="character-hp"></p>
+        </div>
+        <div id="your-character">
+            <div id="character">
+                <p id="character-name"></p>
+                <img src="assets/images/darth-maul.jpg" width="auto" height="150px" id="darth-maul"
+                    class="character-img">
+            </div>
+            <p id="character-hp"></p>
+        </div>
+    </div>
+    <div id="your-character-area">
         <h2>Your Character</h2>
     </div>
-    <div id="enemies-available-to-attack">
+    <div id="enemies-available-to-attack" class="clearfix">
         <h2>Enemies Available To Attack</h2>
     </div>
-    <div id="fight-section">
+    <div id="fight-section" class="clearfix">
         <h2>Fight Section</h2>
         <button type="button" id="attack-button">Attack</button>
     </div>
-    <div id="defender-area">
+    <div id="defender-area" class="clearfix">
         <h2>Defender</h2>
     </div>
-    
+
     <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 

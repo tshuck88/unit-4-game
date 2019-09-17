@@ -9,7 +9,7 @@
 9. The health points for the user and defender are updated to display the amount of HP remaining after the damage done/received
 10. Each time the player attacks, their attack power is increased by the base AP. The defenders AP stays the same
 11. When the user defeats an enemy they are able to choose another enemy and their increased AP is kept
-12. A message is displayed letting the user know the won and to choose a new character
+12. A message is displayed letting the user know the won and to choose a new character. The defeated enemy is removed from the game and no longer seen on screen.
 13. If the user clicks the attack button with no enemy in the defender area, a message is displayed saying there is nothing to attack, please choose an enemy to attack
 14. The user loses the game if their HP reachs 0 or below
 15. The user wins the game if they defeat all the enemies before their HP reaches 0
