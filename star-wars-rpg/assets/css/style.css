@@ -2,13 +2,27 @@ body {
     color: white;
     background-image: url("../images/star-wars-background.jpg");
 }
+h1 {
+    font-size: 3rem;
+}
+h2 {
+    font-size: 2rem;
+}
 
-#your-character {
-    float: left;
+h1, h2 {
+    padding: 10px 0;
 }
 
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
+}
+
+.your-character {
+    float: left;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border: solid green 3px;
 }

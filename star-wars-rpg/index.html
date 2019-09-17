@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Star Wars RPG Game</title>
 
+    <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -17,40 +18,36 @@
         </header>
     </div>
     <div class="clearfix">
-        <div id="your-character">
-            <div id="character">
-                <p id="character-name"></p>
-                <img src="assets/images/obi-wan-kenobi.jpg" width="auto" height="150px" id="obi-wan-kenobi"
-                    class="character-img">
+        <div class="your-character">
+            <div class="character">
+                <p class="obi-wan-kenobi character-name"></p>
+                <img src="assets/images/obi-wan-kenobi.jpg" width="auto" height="125px" class="character-img">
+                <p class="obi-wan-kenobi character-hp"></p>
             </div>
-            <p id="character-hp"></p>
         </div>
-        <div id="your-character">
-            <div id="character">
-                <p id="character-name"></p>
-                <img src="assets/images/luke-skywalker.jpg" width="auto" height="150px" id="luke-skywalker"
-                    class="character-img">
+        <div class="your-character">
+            <div class="character">
+                <p class="luke-skywalker character-name"></p>
+                <img src="assets/images/luke-skywalker.jpg" width="auto" height="125px" class="character-img">
+                <p class="luke-skywalker character-hp"></p>
             </div>
-            <p id="character-hp"></p>
         </div>
-        <div id="your-character">
-            <div id="character">
-                <p id="character-name"></p>
-                <img src="assets/images/darth-vader.jpg" width="auto" height="150px" id="darth-vader"
-                    class="character-img">
+        <div class="your-character">
+            <div class="character">
+                <p class="darth-vader character-name"></p>
+                <img src="assets/images/darth-vader.jpg" width="auto" height="125px" class="character-img">
+                <p class="darth-vader character-hp"></p>
             </div>
-            <p id="character-hp"></p>
         </div>
-        <div id="your-character">
-            <div id="character">
-                <p id="character-name"></p>
-                <img src="assets/images/darth-maul.jpg" width="auto" height="150px" id="darth-maul"
-                    class="character-img">
+        <div class="your-character">
+            <div class="character">
+                <p class="darth-maul character-name"></p>
+                <img src="assets/images/darth-maul.jpg" width="auto" height="125px" class="character-img">
+                <p class="darth-maul character-hp"></p>
             </div>
-            <p id="character-hp"></p>
         </div>
     </div>
-    <div id="your-character-area">
+    <div id="your-character-area" class="clearfix">
         <h2>Your Character</h2>
     </div>
     <div id="enemies-available-to-attack" class="clearfix">
@@ -63,7 +60,7 @@
     <div id="defender-area" class="clearfix">
         <h2>Defender</h2>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 
