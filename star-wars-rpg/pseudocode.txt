@@ -1,0 +1,19 @@
+1. On page load, 4 characters are displayed which the user must choose one as their character
+2. Each character has a green and white border and displays their name and health points
+3. When the user clicks on a character, that character is moved to the 'your character' section and the remaining 3 are moved to the 'enemies available to attack section'
+4. The border around each character is also changed to red and black
+5. The user then chooses one of the remaining enemies to attack. The chosen enemy is moved to the 'defender' section and the border is changed to black and green. 
+6. The other 2 enemies stay in the 'enemies available to attack' section
+7. The user then is able to attack the defender by clicking the attack button
+8. When the user clicks the attack button, a message displays under the defender with the amount of damage the user did and how much they received
+9. The health points for the user and defender are updated to display the amount of HP remaining after the damage done/received
+10. Each time the player attacks, their attack power is increased by the base AP. The defenders AP stays the same
+11. When the user defeats an enemy they are able to choose another enemy and their increased AP is kept
+12. A message is displayed letting the user know the won and to choose a new character
+13. If the user clicks the attack button with no enemy in the defender area, a message is displayed saying there is nothing to attack, please choose an enemy to attack
+14. The user loses the game if their HP reachs 0 or below
+15. The user wins the game if they defeat all the enemies before their HP reaches 0
+16. There is a restart button displayed after the user wins or loses to restart the game
+
+
+ 
