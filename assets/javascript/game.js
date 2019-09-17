@@ -11,7 +11,6 @@ $(document).ready(function() {
 
     function initializeGame() {
         randomNumber = Math.floor(Math.random() * 101 + 19);
-        $("#random-number-text").text(randomNumber);
         totalScore = 0;
         blueCrystal = Math.floor(Math.random() * 11 + 1);
         greenCrystal = Math.floor(Math.random() * 11 + 1);
@@ -24,6 +23,7 @@ $(document).ready(function() {
         $("#wins-text").text(wins);
         $("#losses-text").text(losses);
         $("#total-score-text").text(totalScore);
+        $("#random-number-text").text(randomNumber);
     };
 
     initializeGame();
@@ -47,7 +47,7 @@ $(document).ready(function() {
         totalScore = totalScore + yellowCrystal;
         displayGameText();
     });
-    
+
     $(".crystal").on("click", function() {
         if (totalScore === randomNumber) {
             wins++;
