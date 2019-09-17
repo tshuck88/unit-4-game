@@ -40,8 +40,16 @@ $(document).ready(function () {
     };
     displayGameText();
 
-    $(".your-character").on("click", function(){
-       var yourCharacter = $(this).appendTo("#your-character-area") 
+    $(".character").on("click", function(){
+       var userCharacter = $(this).appendTo("#your-character-area");
+       $(userCharacter).addClass("your-character").removeClass("character");
+       $("#character-container").appendTo("#enemies-available-to-attack");
+       $(".character").addClass("enemy-character").removeClass("character");
+    });
+
+    $(".enemy-character").on("click", function(){
+        var chosenEnemeyCharacter = $(this).appendTo("#defender-area");
+        $(chosenEnemeyCharacter).addClass("chosen-enemy")
     });
 
 

@@ -19,10 +19,18 @@ h1, h2 {
     display: table;
 }
 
-.your-character {
+.character, .your-character {
     float: left;
     background-color: white;
     color: black;
     text-align: center;
     border: solid green 3px;
+}
+
+.enemy-character {
+    float: left;
+    background-color: red;
+    color: black;
+    text-align: center;
+    border: solid black 3px;
 }
