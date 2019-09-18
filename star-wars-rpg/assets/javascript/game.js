@@ -24,59 +24,29 @@ $(document).ready(function () {
         },
         {
             name: "Darth Maul",
-            healthPoints: 150,
+            healthPoints: 180,
             attackPower: 4,
             counterAttackPower: 25,
             characterID: "darth-maul"
         }
     ];
-    var obiWan = {
-        name: "Obi-Wan Kenobi",
-        healthPoints: 120,
-        attackPower: 8,
-        counterAttackPower: 8,
-        characterID: "obi-wan-kenobi"
-    };
-
-    var lukeSkywalker = {
-        name: "Luke Skywalker",
-        healthPoints: 100,
-        attackPower: 10,
-        counterAttackPower: 5,
-        characterID: "luke-skywalker"
-    };
-
-    var darthVader = {
-        name: "Darth Vader",
-        healthPoints: 150,
-        attackPower: 6,
-        counterAttackPower: 20,
-        characterID: "darth-vader"
-    };
-
-    var darthMaul = {
-        name: "Darth Maul",
-        healthPoints: 150,
-        attackPower: 4,
-        counterAttackPower: 25,
-        characterID: "darth-maul"
-    };
 
     var userCharacter;
     var userCharacterID;
     var enemyCharacterID;
     var chosenEnemeyCharacter;
     var isEnemyChosen = false;
+    var currentAttackPower = 0;
 
     function displayGameText() {
-        $(".obi-wan-kenobi.character-name").text(obiWan.name);
-        $(".obi-wan-kenobi.character-hp").text(obiWan.healthPoints);
-        $(".luke-skywalker.character-name").text(lukeSkywalker.name);
-        $(".luke-skywalker.character-hp").text(lukeSkywalker.healthPoints);
-        $(".darth-vader.character-name").text(darthVader.name);
-        $(".darth-vader.character-hp").text(darthVader.healthPoints);
-        $(".darth-maul.character-name").text(darthMaul.name);
-        $(".darth-maul.character-hp").text(darthMaul.healthPoints);
+        $(".obi-wan-kenobi.character-name").text(characterList[0].name);
+        $(".obi-wan-kenobi.character-hp").text(characterList[0].healthPoints);
+        $(".luke-skywalker.character-name").text(characterList[1].name);
+        $(".luke-skywalker.character-hp").text(characterList[1].healthPoints);
+        $(".darth-vader.character-name").text(characterList[2].name);
+        $(".darth-vader.character-hp").text(characterList[2].healthPoints);
+        $(".darth-maul.character-name").text(characterList[3].name);
+        $(".darth-maul.character-hp").text(characterList[3].healthPoints);
     }
     displayGameText();
 
@@ -97,19 +67,37 @@ $(document).ready(function () {
         }
     });
     $(document).on("click", "#attack-button", function () {
-        for(i = 0; i < characterList.length; i++){
-            if(characterList[i].characterID === userCharacterID){
+        for (i = 0; i < characterList.length; i++) {
+            if (characterList[i].characterID === userCharacterID) {
                 userCharacter = characterList[i];
             }
         };
-        for(j = 0; j < characterList.length; j++){
-            if(characterList[j].characterID === enemyCharacterID){
+        for (j = 0; j < characterList.length; j++) {
+            if (characterList[j].characterID === enemyCharacterID) {
                 chosenEnemeyCharacter = characterList[j];
             }
-        };  
-        var userAttack = chosenEnemeyCharacter.healthPoints - userCharacter.attackPower
-        var enemyAttack = userCharacter.healthPoints - chosenEnemeyCharacter.counterAttackPower
-        
+        };
+        function userAttack() {
+            currentAttackPower = currentAttackPower + userCharacter.attackPower;
+            chosenEnemeyCharacter.healthPoints = chosenEnemeyCharacter.healthPoints - currentAttackPower;
+            displayGameText();
+        };
+        function enemyAttack() {
+            userCharacter.healthPoints = userCharacter.healthPoints - chosenEnemeyCharacter.counterAttackPower;
+            displayGameText();
+        };
+        if (userCharacter.healthPoints > 0 && chosenEnemeyCharacter.healthPoints > 0) {
+            userAttack();
+            if (userCharacter.healthPoints > 0 && chosenEnemeyCharacter.healthPoints > 0) {
+                enemyAttack();
+                $("#user-attack-message").text("You attacked " + chosenEnemeyCharacter.name + " for " + currentAttackPower + " damage.");
+                $("#enemy-attack-message").text(chosenEnemeyCharacter.name + " attack you back for " + chosenEnemeyCharacter.counterAttackPower + " damage.")
+            } else if (userCharacter.healthPoints > 0 && chosenEnemeyCharacter.healthPoints <= 0) {
+                $(".chosen-enemy").remove();
+                $("#user-attack-message").text("You defeated " + chosenEnemeyCharacter.name + ". Choose another enemy to fight.");
+                $("#enemy-attack-message").text("");
+                isEnemyChosen = false;
+            };             
+        }
     });
-
 });
