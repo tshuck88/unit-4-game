@@ -97,12 +97,19 @@ $(document).ready(function () {
         }
     });
     $(document).on("click", "#attack-button", function () {
-        userCharacter = $.grep(characterList, function (obj) {
-            return obj.characterID === userCharacterID
-        });
-        chosenEnemeyCharacter = $.grep(characterList, function(obj){
-            return obj.characterID === enemyCharacterID
-        });
+        for(i = 0; i < characterList.length; i++){
+            if(characterList[i].characterID === userCharacterID){
+                userCharacter = characterList[i];
+            }
+        };
+        for(j = 0; j < characterList.length; j++){
+            if(characterList[j].characterID === enemyCharacterID){
+                chosenEnemeyCharacter = characterList[j];
+            }
+        };  
+        var userAttack = chosenEnemeyCharacter.healthPoints - userCharacter.attackPower
+        var enemyAttack = userCharacter.healthPoints - chosenEnemeyCharacter.counterAttackPower
+        
     });
 
 });
