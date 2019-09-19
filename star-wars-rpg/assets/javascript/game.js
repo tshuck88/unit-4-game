@@ -47,7 +47,23 @@ $(document).ready(function () {
         $(".darth-vader.character-hp").text(characterList[2].healthPoints);
         $(".darth-maul.character-name").text(characterList[3].name);
         $(".darth-maul.character-hp").text(characterList[3].healthPoints);
-    }
+    };
+    function restartGame() {
+        currentAttackPower = 0;
+        characterList[0].healthPoints = 120;
+        characterList[1].healthPoints = 100;
+        characterList[2].healthPoints = 150;
+        characterList[3].healthPoints = 180;
+        $("#character-container").appendTo("#choose-character-area");
+        $(".chosen-enemy").appendTo("#character-container")
+        $(".chosen-enemy").addClass("character").removeClass("enemy-character").removeClass("chosen-enemy");
+        // $(".character").appendTo("#charater-container");
+        $("#user-attack-message").text("");
+        $("#enemy-attack-message").text("");
+        
+        displayGameText();
+    };
+
     displayGameText();
 
     $(document).on("click", ".character", function () {
@@ -64,6 +80,7 @@ $(document).ready(function () {
             enemyCharacterID = $(this).attr("id");
             $(chosenEnemeyCharacter).addClass("chosen-enemy");
             isEnemyChosen = true;
+            $("#user-attack-message").text("");
         }
     });
     $(document).on("click", "#attack-button", function () {
@@ -92,12 +109,23 @@ $(document).ready(function () {
                 enemyAttack();
                 $("#user-attack-message").text("You attacked " + chosenEnemeyCharacter.name + " for " + currentAttackPower + " damage.");
                 $("#enemy-attack-message").text(chosenEnemeyCharacter.name + " attack you back for " + chosenEnemeyCharacter.counterAttackPower + " damage.")
+            } else if (userCharacter.healthPoints > 0 && chosenEnemeyCharacter.healthPoints <= 0 && $("#character-container").children().length == 0){
+                $(".chosen-enemy").detach();
+                $("#user-attack-message").text("You won!!!! GAME OVER!!!!");
+                $("#enemy-attack-message").html('<button type="button" id="restart-button">Restart Game</button>');
+                $("#restart-button").on("click", function(){
+                    restartGame();
+                });
             } else if (userCharacter.healthPoints > 0 && chosenEnemeyCharacter.healthPoints <= 0) {
-                $(".chosen-enemy").remove();
+                $(".chosen-enemy").detach();
                 $("#user-attack-message").text("You defeated " + chosenEnemeyCharacter.name + ". Choose another enemy to fight.");
                 $("#enemy-attack-message").text("");
                 isEnemyChosen = false;
-            };             
-        }
+            } 
+            if (userCharacter.healthPoints <= 0 && chosenEnemeyCharacter.healthPoints > 0){
+                $("#user-attack-message").text("You have been defeated. GAME OVER!!!!");
+                $("#enemy-attack-message").text("");
+            }  
+        };
     });
 });
